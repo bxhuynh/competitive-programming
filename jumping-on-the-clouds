@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int jumpingOnClouds(vector<int> c) {
+    int minNoOfJumps = 0;
+    int i = 0;
+    while (i < c.size() - 1)
+    {
+        if (i + 2 <= c.size() - 1 && !c[i + 2])
+        {
+            minNoOfJumps++;
+            i+=2;
+            continue;
+        }
+        if (!c[i + 1])
+        {
+            minNoOfJumps++;
+            i++;
+        }
+    }
+    return minNoOfJumps;
+}
+
+int main()
+{
+   
+    int n, x;
+    cin >> n;
+    vector<int> c;
+
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        c.push_back(x);
+    }
+
+    int result = jumpingOnClouds(c);
+    cout << result << "\n";
+
+    return 0;
+}
